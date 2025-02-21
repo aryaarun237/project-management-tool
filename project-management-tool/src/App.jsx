@@ -1,15 +1,23 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import Signup from "./components/auth/Signup";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import SignUp from "./components/auth/SignUp";
+import SignIn from "./components/auth/SignIn";
 import Dashboard from "./components/dashboard/Dashboard";
+
+const PrivateRoute = ({ children }) => {
+  return localStorage.getItem("auth") === "true" ? children : <Navigate to="/signin" />;
+};
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/signup" />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes> 
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/signin" />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+      </Routes>
+    </Router>
   );
 };
 
