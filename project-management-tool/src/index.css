@@ -1,24 +1,44 @@
+/* 🌟 Global Styles for the Website */
 body {
-  background: linear-gradient(to right, #6a11cb, #2575fc);
+  background-color: #F6F4F0; /* Off-white background */
+  color: #2E5077; /* Dark Blue text */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #2E5077 !important; /* Dark Blue */
   color: white;
-  font-family: "Poppins", sans-serif;
+}
+.sidebar .list-group-item {
+  background-color: #2E5077 !important;
+  color: white;
+}
+.sidebar .list-group-item:hover {
+  background-color: #4DA1A9 !important; /* Teal */
 }
 
-.container {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
+/* Buttons */
+.btn-primary {
+  background-color: #4DA1A9 !important; /* Teal */
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #79D7BE !important; /* Light Teal */
 }
 
-h2 {
-  color: #444;
-  font-weight: bold;
+/* Cards */
+.card {
+  background-color: white;
+  border: 1px solid #4DA1A9;
+  color: #2E5077;
+}
+.card-header {
+  background-color: #79D7BE;
+  color: white;
 }
 
-button {
-  transition: all 0.3s ease-in-out;
-}
-
-button:hover {
-  transform: scale(1.05);
+/* Dashboard Titles */
+h2, h3, h4 {
+  color: #2E5077;
 }

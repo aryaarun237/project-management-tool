@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import SignUp from "./components/auth/SignUp";
 import SignIn from "./components/auth/SignIn";
 import Dashboard from "./components/dashboard/Dashboard";
+import Tasks from "./components/dashboard/Tasks";
+import Analytics from "./components/dashboard/Analytics";
+import CalendarComponent from "./components/dashboard/CalendarComponent";
+import ExportReport from "./components/dashboard/ExportReport";
 
 const PrivateRoute = ({ children }) => {
   return localStorage.getItem("auth") === "true" ? children : <Navigate to="/signin" />;
@@ -16,6 +20,10 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/tasks" element={<PrivateRoute><Tasks /></PrivateRoute>} />
+        <Route path="/analytics" element={<PrivateRoute><Analytics /></PrivateRoute>} />
+        <Route path="/calendar" element={<PrivateRoute><CalendarComponent /></PrivateRoute>} />
+        <Route path="/reports" element={<PrivateRoute><ExportReport /></PrivateRoute>} />
       </Routes>
     </Router>
   );

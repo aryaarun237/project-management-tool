@@ -1,66 +1,47 @@
 import React, { useState } from "react";
-import { Card } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const initialTasks = [
-  { id: "1", title: "Design UI", status: "To Do" },
-  { id: "2", title: "Fix bugs", status: "In Progress" },
-  { id: "3", title: "Deploy app", status: "Done" },
+  { id: "1", content: "Complete project documentation" },
+  { id: "2", content: "Fix login page bug" },
+  { id: "3", content: "Update dashboard UI" },
+  { id: "4", content: "Integrate API for analytics" }
 ];
-
-const statuses = ["To Do", "In Progress", "Done"];
 
 const Tasks = () => {
   const [tasks, setTasks] = useState(initialTasks);
 
   const handleDragEnd = (result) => {
     if (!result.destination) return;
-    const updatedTasks = [...tasks];
-    const [movedTask] = updatedTasks.splice(result.source.index, 1);
-    movedTask.status = statuses[result.destination.droppableId];
-    updatedTasks.splice(result.destination.index, 0, movedTask);
-    setTasks(updatedTasks);
+    const items = [...tasks];
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+    setTasks(items);
   };
 
   return (
-    <Card className="p-3 mt-3">
-      <h4>Task Board</h4>
+    <Container>
+      <h4>Task Management</h4>
       <DragDropContext onDragEnd={handleDragEnd}>
-        <div className="d-flex justify-content-between">
-          {statuses.map((status, index) => (
-            <Droppable key={index} droppableId={String(index)}>
-              {(provided) => (
-                <div
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                  className="p-3 border rounded bg-light mx-2"
-                  style={{ minWidth: "250px" }}
-                >
-                  <h5>{status}</h5>
-                  {tasks
-                    .filter((task) => task.status === status)
-                    .map((task, i) => (
-                      <Draggable key={task.id} draggableId={task.id} index={i}>
-                        {(provided) => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            className="p-2 bg-white shadow-sm rounded mb-2"
-                          >
-                            {task.title}
-                          </div>
-                        )}
-                      </Draggable>
-                    ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          ))}
-        </div>
+        <Droppable droppableId="tasks">
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {tasks.map((task, index) => (
+                <Draggable key={task.id} draggableId={task.id} index={index}>
+                  {(provided) => (
+                    <Card className="mb-2 p-2" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                      {task.content}
+                    </Card>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
       </DragDropContext>
-    </Card>
+    </Container>
   );
 };
 

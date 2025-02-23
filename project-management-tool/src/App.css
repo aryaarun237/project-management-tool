@@ -1,42 +1,44 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* 🌟 Global Styles for the Website */
+body {
+  background-color: #F6F4F0; /* Off-white background */
+  color: #2E5077; /* Dark Blue text */
+  font-family: 'Arial', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Sidebar */
+.sidebar {
+  background-color: #2E5077 !important; /* Dark Blue */
+  color: white;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.sidebar .list-group-item {
+  background-color: #2E5077 !important;
+  color: white;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar .list-group-item:hover {
+  background-color: #4DA1A9 !important; /* Teal */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Buttons */
+.btn-primary {
+  background-color: #4DA1A9 !important; /* Teal */
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #79D7BE !important; /* Light Teal */
 }
 
+/* Cards */
 .card {
-  padding: 2em;
+  background-color: white;
+  border: 1px solid #4DA1A9;
+  color: #2E5077;
+}
+.card-header {
+  background-color: #79D7BE;
+  color: white;
 }
 
-.read-the-docs {
-  color: #888;
+/* Dashboard Titles */
+h2, h3, h4 {
+  color: #2E5077;
 }
