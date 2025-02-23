@@ -6,7 +6,13 @@ const initialTasks = [
   { id: "1", content: "Complete project documentation" },
   { id: "2", content: "Fix login page bug" },
   { id: "3", content: "Update dashboard UI" },
-  { id: "4", content: "Integrate API for analytics" }
+  { id: "4", content: "Integrate API for analytics" },
+  { id: "5", content: "Optimize database queries" },
+  { id: "6", content: "Write unit tests for authentication module" },
+  { id: "7", content: "Enhance security by implementing JWT authentication" },
+  { id: "8", content: "Refactor code to improve readability and performance" },
+  { id: "9", content: "Add dark mode toggle to UI" },
+  { id: "10", content: "Deploy app to production server" }
 ];
 
 const Tasks = () => {

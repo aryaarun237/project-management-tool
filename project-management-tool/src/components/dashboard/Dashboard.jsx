@@ -13,15 +13,15 @@ const Dashboard = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <Container fluid className="p-4">
+      <Container fluid className="p-4" style={{ backgroundColor: "#F6F4F0", minHeight: "100vh" }}>
         {/* Header Section */}
         <Row className="mb-4 align-items-center">
           <Col>
-            <h2 className="fw-bold">Welcome, User</h2>
+            <h2 className="fw-bold" style={{ color: "#2E5077" }}>Welcome, User</h2>
           </Col>
           <Col className="text-end">
             <Button
-              variant="danger"
+              style={{ backgroundColor: "#dc3545", border: "none" }}
               onClick={() => {
                 localStorage.removeItem("auth");
                 window.location.href = "/signin";
@@ -35,25 +35,25 @@ const Dashboard = () => {
         {/* Quick Stats Section */}
         <Row className="mb-4">
           <Col md={4}>
-            <Card bg="primary" text="white" className="text-center p-3">
+            <Card style={{ backgroundColor: "#4DA1A9", color: "#F6F4F0" }} className="text-center p-3">
               <Card.Body>
-                <Card.Title>Pending Tasks</Card.Title>
+                <Card.Title>📌 Pending Tasks</Card.Title>
                 <h3>8</h3>
               </Card.Body>
             </Card>
           </Col>
           <Col md={4}>
-            <Card bg="success" text="white" className="text-center p-3">
+            <Card style={{ backgroundColor: "#79D7BE", color: "#2E5077" }} className="text-center p-3">
               <Card.Body>
-                <Card.Title>Completed Tasks</Card.Title>
+                <Card.Title>✅ Completed Tasks</Card.Title>
                 <h3>15</h3>
               </Card.Body>
             </Card>
           </Col>
           <Col md={4}>
-            <Card bg="warning" text="dark" className="text-center p-3">
+            <Card style={{ backgroundColor: "#F6F4F0", color: "#2E5077", border: "1px solid #2E5077" }} className="text-center p-3">
               <Card.Body>
-                <Card.Title>Upcoming Meetings</Card.Title>
+                <Card.Title>📅 Upcoming Meetings</Card.Title>
                 <h3>3</h3>
               </Card.Body>
             </Card>
@@ -62,20 +62,20 @@ const Dashboard = () => {
 
         {/* Task & Analytics Section */}
         <Row>
-          <Col md={16}>
+          <Col md={6}>
             <Tasks />
           </Col>
-          <Col md={16}>
+          <Col md={6}>
             <Analytics />
           </Col>
         </Row>
 
         {/* Calendar & Export Section */}
         <Row className="mt-4">
-          <Col md={6}>
+          <Col md={5}>
             <CalendarComponent />
           </Col>
-          <Col md={6}>
+          <Col md={10}>
             <ExportReport />
           </Col>
         </Row>
