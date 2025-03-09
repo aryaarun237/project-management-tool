@@ -73,16 +73,7 @@ const Sidebar = () => {
             >
               Reports
             </ListGroup.Item>
-            {/* ✅ Profile Section */}
-            <ListGroup.Item 
-              action 
-              style={{ backgroundColor: "#2E5077", color: "#F6F4F0", border: "none" }}
-              onClick={() => navigate("/profile")}  // 🔥 Add Profile Navigation
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#4DA1A9")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#2E5077")}
-            >
-              👤 Profile
-            </ListGroup.Item>
+            
           </ListGroup>
         </Offcanvas.Body>
       </Offcanvas>
