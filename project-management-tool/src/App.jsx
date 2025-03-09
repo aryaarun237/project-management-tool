@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import SignUp from "./components/auth/SignUp";
-import SignIn from "./components/auth/SignIn";
+import SignUp from "./components/auth/Signup";
+import SignIn from "./components/auth/Signin";
 import Dashboard from "./components/dashboard/Dashboard";
 import Tasks from "./components/dashboard/Tasks";
 import Analytics from "./components/dashboard/Analytics";
@@ -9,8 +9,10 @@ import CalendarComponent from "./components/dashboard/CalendarComponent";
 import ExportReport from "./components/dashboard/ExportReport";
 
 const PrivateRoute = ({ children }) => {
-  return localStorage.getItem("auth") === "true" ? children : <Navigate to="/signin" />;
+  return localStorage.getItem("auth") ? children : <Navigate to="/signin" />;
 };
+
+
 
 const App = () => {
   return (

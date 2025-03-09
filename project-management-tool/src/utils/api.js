@@ -1,13 +1,15 @@
-
 import axios from "axios";
 
 // Base URL for API requests
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_BASE_URL = import.meta.env.VITE_REACT_APP_API_URL || "http://localhost:5000";
 
 // Function to send API requests
 export const apiRequest = async (method, endpoint, data = null, token = null) => {
   try {
-    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+    const headers = {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    };
 
     const response = await axios({
       method,
@@ -22,8 +24,6 @@ export const apiRequest = async (method, endpoint, data = null, token = null) =>
     throw error.response?.data || { message: "An error occurred" };
   }
 };
-
-// Example API functions
 
 // Sign In
 export const signIn = async (email, password) => {
@@ -45,4 +45,3 @@ export const logout = () => {
   localStorage.removeItem("auth");
   window.location.href = "/signin";
 };
-
