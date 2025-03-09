@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Card } from "react-bootstrap";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 const initialTasks = [
   { id: "1", content: "Complete project documentation" },

@@ -1,0 +1,33 @@
+:root {
+  --background-light: #f6f4f0;
+  --background-dark: #2e2e2e;
+  --text-light: #2e5077;
+  --text-dark: #ffffff;
+  --card-light: #ffffff;
+  --card-dark: #444;
+}
+
+.light-theme {
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+
+.dark-theme {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.dashboard-card {
+  background-color: var(--card-light);
+  color: var(--text-light);
+  transition: 0.3s;
+}
+
+.dark-theme .dashboard-card {
+  background-color: var(--card-dark);
+  color: var(--text-dark);
+}
+
+.profile-dropdown img {
+  border: 2px solid var(--text-light);
+}
